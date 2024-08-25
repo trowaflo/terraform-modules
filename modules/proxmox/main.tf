@@ -83,6 +83,10 @@ resource "proxmox_virtual_environment_vm" "vm" {
 
 }
 
+output "vm" {
+  value = proxmox_virtual_environment_vm.vm.ipv4_addresses
+}
+
 resource "proxmox_virtual_environment_file" "cloud_user_config" {
   content_type = "snippets"
   datastore_id = "local"
