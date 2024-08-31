@@ -83,7 +83,10 @@ resource "proxmox_virtual_environment_vm" "vm" {
 
 }
 
-output "vm" {
+output "vm_id" {
+  value = proxmox_virtual_environment_vm.vm.id
+}
+output "vm_ip" {
   value = proxmox_virtual_environment_vm.vm.ipv4_addresses
 }
 
