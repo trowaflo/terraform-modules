@@ -74,10 +74,10 @@ resource "proxmox_virtual_environment_vm" "vm" {
     #   }
     # }
 
-    datastore_id         = "local-lvm"
-    interface            = "ide2"
-    user_data_file_id    = proxmox_virtual_environment_file.cloud_user_config.id
-    meta_data_file_id    = proxmox_virtual_environment_file.cloud_meta_config.id
+    datastore_id      = "local-lvm"
+    interface         = "ide2"
+    user_data_file_id = proxmox_virtual_environment_file.cloud_user_config.id
+    meta_data_file_id = proxmox_virtual_environment_file.cloud_meta_config.id
   }
 
 
@@ -96,7 +96,12 @@ resource "proxmox_virtual_environment_file" "cloud_user_config" {
   node_name    = var.target_node
 
   source_raw {
-    data = file(var.cloud_user_config_file)
+    data = templatefile(var.cloud_user_config_file,
+      {
+        domain   = var.domain
+        hostname = var.vm_hostname
+      }
+    )
 
     file_name = "${var.vm_hostname}.${var.domain}-ci-user.yml"
   }
