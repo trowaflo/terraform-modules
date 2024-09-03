@@ -70,6 +70,16 @@ variable "memory_floating" {
   type        = number
   default     = 0
 }
+variable "vga_type" {
+  description = "VGA type"
+  type        = string
+  default     = "std"
+}
+variable "vga_memory" {
+  description = "VGA memory"
+  type        = number
+  default     = 16
+}
 variable "network_bridge" {
   description = "Network bridge"
   type        = string

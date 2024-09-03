@@ -35,6 +35,11 @@ resource "proxmox_virtual_environment_vm" "vm" {
     floating  = var.memory_floating
   }
 
+  vga {
+    type = var.vga_type
+    memory = var.vga_memory
+  }
+
   network_device {
     bridge = var.network_bridge
     model  = var.network_model
