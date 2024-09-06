@@ -85,6 +85,10 @@ variable "network_bridge" {
   type        = string
   default     = "vmbr0"
 }
+variable "network_mac_address" {
+  description = "Network MAC address"
+  type        = string
+}
 variable "network_model" {
   description = "Network model"
   type        = string

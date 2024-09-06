@@ -36,13 +36,14 @@ resource "proxmox_virtual_environment_vm" "vm" {
   }
 
   vga {
-    type = var.vga_type
+    type   = var.vga_type
     memory = var.vga_memory
   }
 
   network_device {
-    bridge = var.network_bridge
-    model  = var.network_model
+    bridge      = var.network_bridge
+    mac_address = var.network_mac_address
+    model       = var.network_model
   }
   # Ignore changes to the network
   ## MAC address is generated on every apply, causing
