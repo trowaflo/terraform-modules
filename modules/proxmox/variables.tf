@@ -60,6 +60,11 @@ variable "cpu_units" {
   type        = number
   default     = 100
 }
+variable "cpu_type" {
+  description = "CPU type"
+  type        = string
+  default     = "host"
+}
 variable "memory_mb" {
   description = "Number of memory in MB"
   type        = number
