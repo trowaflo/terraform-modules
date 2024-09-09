@@ -99,17 +99,17 @@ variable "network_model" {
   type        = string
   default     = "virtio"
 }
-variable "disk" {
-  description = "Disk (size in Gb)"
-  type = object({
-    storage = string
-    size    = number
-  })
-  default = {
-    storage = "local-lvm"
-    size    = 10
-  }
-}
+# variable "disk" {
+#   description = "Disk (size in Gb)"
+#   type = object({
+#     storage = string
+#     size    = number
+#   })
+#   default = {
+#     storage = "local-lvm"
+#     size    = 10
+#   }
+# }
 variable "additionnal_disks" {
   description = "Additionnal disks"
   type = list(object({

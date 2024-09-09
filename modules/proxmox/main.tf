@@ -36,18 +36,6 @@ resource "proxmox_virtual_environment_vm" "vm" {
     floating  = var.memory_floating
   }
 
-  disk {
-    aio          = "io_uring"
-    backup       = true
-    cache = "none"
-    datastore_id = "local-lvm"
-    interface    = "scsi"
-    iothread     = true
-    size    = var.disk.size
-
-
-  }
-
   vga {
     type   = var.vga_type
     memory = var.vga_memory
