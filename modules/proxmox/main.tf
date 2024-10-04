@@ -50,6 +50,7 @@ resource "proxmox_virtual_environment_vm" "vm" {
   ## MAC address is generated on every apply, causing
   ## TF to think this needs to be rebuilt on every apply
   lifecycle {
+    prevent_destroy = true
     ignore_changes = [
       network_device,
     ]
@@ -85,10 +86,6 @@ resource "proxmox_virtual_environment_vm" "vm" {
     interface         = "ide2"
     user_data_file_id = proxmox_virtual_environment_file.cloud_user_config.id
     meta_data_file_id = proxmox_virtual_environment_file.cloud_meta_config.id
-  }
-
-  lifecycle{
-    prevent_destroy = true
   }
 }
 
