@@ -17,11 +17,6 @@ variable "ssh_username" {
   description = "SSH username"
   type        = string
 }
-variable "vm_prevent_destroy" {
-  description = "Prevent VM from being destroyed"
-  type        = bool
-  default     = true
-}
 ### Source template
 variable "src_template_tag" {
   description = "Template tag"
