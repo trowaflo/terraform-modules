@@ -92,7 +92,7 @@ resource "proxmox_virtual_environment_vm" "vm_with_prevent_destroy" {
   }
 }
 # Without Prevent Destroy
-resource "proxmox_virtuel_environment_vm" "vm_without_prevent_destroy" {
+resource "proxmox_virtual_environment_vm" "vm_without_prevent_destroy" {
   count = var.vm_prevent_destroy ? 0 : 1
 
   name      = "${var.vm_hostname}.${var.domain}"
@@ -174,10 +174,10 @@ resource "proxmox_virtuel_environment_vm" "vm_without_prevent_destroy" {
 }
 
 output "vm_id" {
-  value = proxmox_virtual_environment_vm.vm.id
+  value = var.vm_prevent_destroy ? proxmox_virtual_environment_vm.vm_with_prevent_destroy[0].id : proxmox_virtual_environment_vm.vm_without_prevent_destroy[0].id
 }
 output "vm_ip" {
-  value = proxmox_virtual_environment_vm.vm.ipv4_addresses
+  value = proxmox_virtual_environment_vm.vm_with_prevent_destroy[0].ipv4_addresses : proxmox_virtual_environment_vm.vm_without_prevent_destroy[0].ipv4_addresses
 }
 
 resource "proxmox_virtual_environment_file" "cloud_user_config" {
