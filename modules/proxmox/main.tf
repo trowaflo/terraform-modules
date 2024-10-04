@@ -87,7 +87,9 @@ resource "proxmox_virtual_environment_vm" "vm" {
     meta_data_file_id = proxmox_virtual_environment_file.cloud_meta_config.id
   }
 
-
+  lifecycle{
+    prevent_destroy = true
+  }
 }
 
 output "vm_id" {
