@@ -177,7 +177,7 @@ output "vm_id" {
   value = var.vm_prevent_destroy ? proxmox_virtual_environment_vm.vm_with_prevent_destroy[0].id : proxmox_virtual_environment_vm.vm_without_prevent_destroy[0].id
 }
 output "vm_ip" {
-  value = var.vm_prevent_destroy ? proxmox_virtual_environment_vm.vm_with_prevent_destroy[0].ipv4_addresses : proxmox_virtual_environment_vm.vm_without_prevent_destroy[0].ipv4_addresses
+  value = proxmox_virtual_environment_vm.vm_with_prevent_destroy[0].ipv4_addresses : proxmox_virtual_environment_vm.vm_without_prevent_destroy[0].ipv4_addresses
 }
 
 resource "proxmox_virtual_environment_file" "cloud_user_config" {
