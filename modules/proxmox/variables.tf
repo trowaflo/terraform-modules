@@ -17,7 +17,7 @@ variable "ssh_username" {
   description = "SSH username"
   type        = string
 }
-variable "vm_enable_prevent_destroy_vm" {
+variable "vm_enable_prevent_destroy" {
   description = "VM enable prevent destroy vm"
   type        = bool
   default     = true
